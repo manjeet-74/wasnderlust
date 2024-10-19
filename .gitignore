@@ -1,0 +1,76 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore dependency directories
+jspm_packages/
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+
+# Ignore build directories
+/build
+/dist
+
+# Ignore IDE/editor configuration files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ignore temporary and system files for Windows
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignore compiled Windows binaries
+*.exe
+*.dll
+*.com
+*.bat
+*.cmd
+
+# Ignore file system specific metadata
+*.vscode/
+*.iml
+*.ipr
+*.iws
+*.class
+
+# Ignore macOS files (if collaborating with macOS users)
+.DS_Store
+._*
+
+# Ignore archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Ignore custom output directories (adjust as needed)
+out/
+build/
+
+# Ignore compiled bytecode
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore JetBrains project files
+*.idea/

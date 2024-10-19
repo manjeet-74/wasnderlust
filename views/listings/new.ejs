@@ -1,0 +1,85 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <div class="row px-0">
+    <div class="col-8 offset-2">
+      <br /><br />
+      <h3>Create a new listing</h3>
+      <form method="POST" action="/listings">
+        <div class="mb-3 position-relative">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="listing[title]"
+            placeholder="Enter the title"
+            required
+          />
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            class="form-control"
+            name="listing[description]"
+            id="description"
+            rows="3"
+            placeholder="Enter the description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label for="image" class="form-label">Image</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="listing[image][url]"
+            placeholder="Enter the image link"
+          />
+        </div>
+
+        <div class="row px-0 my-0">
+          <div class="mb-3 col-md-4 position-relative">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="text"
+              class="form-control"
+              id="price"
+              name="listing[price]"
+              placeholder="Enter the price"
+              required
+            />
+          </div>
+
+          <div class="mb-3 col-md-8 position-relative">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              class="form-control"
+              id="country"
+              name="listing[country]"
+              placeholder="Enter the country"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="listing[location]"
+            placeholder="Enter the location"
+            required
+          />
+        </div>
+        <button class="btn btn-dark add-btn">Add</button>
+        <br /><br />
+      </form>
+    </div>
+  </div>
+</body>
