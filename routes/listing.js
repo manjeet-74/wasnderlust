@@ -49,6 +49,7 @@ router.post(
     try {
       let newListing = new Listing(req.body.listing);
       await newListing.save();
+      req.flash("success", "New listing created!!");
       res.redirect("/listings");
     } catch (error) {
       next(error);
