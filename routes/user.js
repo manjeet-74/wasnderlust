@@ -5,59 +5,25 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
 const { saveRedirectUrl } = require("../middleware.js");
 
-router.get("/signup", (req, res) => {
-  res.render("users/signup.ejs");
-});
+const userController = require("../controllers/user.js");
 
-router.post(
-  "/signup",
-  wrapAsync(async (req, res) => {
-    try {
-      let { username, email, password } = req.body;
-      const newUser = new User({ email, username });
-      const registeredUser = await User.register(newUser, password);
-      console.log(registeredUser);
-      req.login(registeredUser, (err) => {
-        if (err) {
-          return next(err);
-        }
-        req.flash("success", "Welcome to Wanderlust");
-        res.redirect("/listings");
-      });
-    } catch (e) {
-      req.flash("error", e.message);
-      res.redirect("/signup");
-    }
-  })
-);
+router
+  .route("/signup")
+  .get(userController.renderSignupPage)
+  .post(wrapAsync(userController.singupPage));
 
-router.get("/login", (req, res) => {
-  res.render("users/login.ejs");
-});
+router
+  .route("/login")
+  .get(userController.renderLoginPage)
+  .post(
+    saveRedirectUrl,
+    passport.authenticate("local", {
+      failureRedirect: "/login",
+      failureFlash: true,
+    }),
+    userController.loginPage
+  );
 
-router.post(
-  "/login",
-  saveRedirectUrl,
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-    failureFlash: true,
-  }),
-  (req, res) => {
-    req.flash("success", "Welcome to Wanderlust!"); // Set custom success message
-    const redirectUrl = res.locals.redirectUrl || "/listings"; // Use saved URL or default
-    res.redirect(redirectUrl);
-  }
-);
-
-router.get("/logout", (req, res) => {
-  req.logout((error) => {
-    if (error) {
-      return next(error);
-    } else {
-      req.flash("success", "You are logged out now!!");
-      res.redirect("/listings");
-    }
-  });
-});
+router.get("/logout", userController.logoutSession);
 
 module.exports = router;
