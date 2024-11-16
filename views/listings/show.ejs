@@ -127,6 +127,7 @@
             </p>
             <p class="card-text"><%= review.comment %></p>
           </div>
+
           <form
             action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
             method="POST"
