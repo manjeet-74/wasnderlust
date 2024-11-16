@@ -9,6 +9,8 @@ module.exports.singupPage = async (req, res) => {
       if (err) {
         return next(err);
       }
+      console.log(registeredUser);
+
       req.flash("success", "Welcome to Wanderlust");
       res.redirect("/listings");
     });
@@ -29,7 +31,6 @@ module.exports.renderLoginPage = (req, res) => {
 module.exports.loginPage = (req, res) => {
   req.flash("success", "Welcome to Wanderlust!"); // Set custom success message
   const redirectUrl = res.locals.redirectUrl || "/listings"; // Use saved URL or default
-  console.log(redirectUrl);
   res.redirect(redirectUrl);
 };
 

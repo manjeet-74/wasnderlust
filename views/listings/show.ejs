@@ -112,12 +112,12 @@
       </form>
       <% } %>
 
-      <hr />
-
       <!-- Show Review -->
-      <p><b>All Reviews</b></p>
 
+      <% if(listing.reviews.length > 0) { %>
+      <hr />
       <div class="row">
+        <p><b>All Reviews</b></p>
         <% for(review of listing.reviews){ %>
         <div class="card col-5 ms-3 mb-3 p-3">
           <div class="card-body">
@@ -136,6 +136,7 @@
         </div>
         <% } %>
       </div>
+      <% } %>
     </div>
   </div>
 </body>

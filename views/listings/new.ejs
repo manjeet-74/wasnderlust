@@ -4,7 +4,7 @@
     <div class="col-8 offset-2">
       <br /><br />
       <h3>Create a new listing</h3>
-      <form method="POST" action="/listings">
+      <form method="POST" action="/listings" enctype="multipart/form-data">
         <div class="mb-3 position-relative">
           <label for="title" class="form-label">Title</label>
           <input
@@ -29,14 +29,15 @@
           ></textarea>
         </div>
 
+        <!-- Upload image -->
         <div class="mb-3 position-relative">
-          <label for="image" class="form-label">Image</label>
+          <label for="image" class="form-label">Upload Listing image</label>
           <input
-            type="text"
+            type="file"
             class="form-control"
             id="image"
-            name="listing[image][url]"
-            placeholder="Enter the image link"
+            name="listing[image]"
+            required
           />
         </div>
 
