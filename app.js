@@ -88,7 +88,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", () => {
+app.get("/", (req, res) => {
   res.redirect("/listings");
 });
 
